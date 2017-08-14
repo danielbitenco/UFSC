@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 18, 2016 6:51:54 PM by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="Recebe" table="recebe">
+        <id name="idSequencia" type="int">
+            <column name="id_sequencia" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pessoa" class="Pessoa" fetch="select">
+            <column name="id_pessoa" />
+        </many-to-one>
+        <many-to-one name="solicitacao" class="Solicitacao" fetch="select">
+            <column name="id_solicitacao" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

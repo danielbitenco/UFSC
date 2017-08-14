@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 18, 2016 6:51:54 PM by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="Utiliza" table="utiliza">
+        <composite-id name="id" class="UtilizaId">
+            <key-property name="idSequencia" type="int">
+                <column name="id_sequencia" />
+            </key-property>
+            <key-property name="idExemplar" type="int">
+                <column name="id_exemplar" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="exemplar" class="Exemplar" update="false" insert="false" fetch="select">
+            <column name="id_exemplar" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pessoa" class="Pessoa" fetch="select">
+            <column name="id_pessoa" />
+        </many-to-one>
+        <many-to-one name="projeto" class="Projeto" fetch="select">
+            <column name="id_projeto" />
+        </many-to-one>
+        <property name="dataDevolucao" type="date">
+            <column name="data_devolucao" length="13" />
+        </property>
+        <property name="dataEmprestimo" type="date">
+            <column name="data_emprestimo" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>

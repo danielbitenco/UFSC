@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 18, 2016 6:51:54 PM by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="Exemplar" table="exemplar">
+        <id name="idExemplar" type="int">
+            <column name="id_exemplar" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="item" class="Item" fetch="select">
+            <column name="id_componente" />
+        </many-to-one>
+        <property name="corredor" type="string">
+            <column name="corredor" length="100" />
+        </property>
+        <property name="box" type="string">
+            <column name="box" length="100" />
+        </property>
+        <property name="prateleira" type="string">
+            <column name="prateleira" length="100" />
+        </property>
+        <set name="utilizas" table="utiliza" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_exemplar" not-null="true" />
+            </key>
+            <one-to-many class="Utiliza" />
+        </set>
+    </class>
+</hibernate-mapping>

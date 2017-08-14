@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 18, 2016 6:51:54 PM by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="Pessoa" table="pessoa">
+        <id name="idPessoa" type="int">
+            <column name="id_pessoa" />
+            <generator class="assigned" />
+        </id>
+        <property name="universidade" type="string">
+            <column name="universidade" length="100" />
+        </property>
+        <property name="formacao" type="string">
+            <column name="formacao" length="100" />
+        </property>
+        <property name="curso" type="string">
+            <column name="curso" length="100" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="endereco" length="100" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" />
+        </property>
+        <property name="salario" type="java.lang.Float">
+            <column name="salario" precision="8" scale="8" />
+        </property>
+        <property name="dataAdimissao" type="date">
+            <column name="data_adimissao" length="13" />
+        </property>
+        <property name="nome" type="string">
+            <column name="nome" length="100" />
+        </property>
+        <set name="utilizas" table="utiliza" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" />
+            </key>
+            <one-to-many class="Utiliza" />
+        </set>
+        <set name="solicitas" table="solicita" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" />
+            </key>
+            <one-to-many class="Solicita" />
+        </set>
+        <set name="pedidos" table="pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" />
+            </key>
+            <one-to-many class="Pedido" />
+        </set>
+        <set name="pessoaProjetos" table="pessoa_projeto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" />
+            </key>
+            <one-to-many class="PessoaProjeto" />
+        </set>
+        <set name="tipoPessoas" table="tipo_pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="TipoPessoa" />
+        </set>
+        <set name="recebes" table="recebe" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" />
+            </key>
+            <one-to-many class="Recebe" />
+        </set>
+        <set name="funcaos" table="funcao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="Funcao" />
+        </set>
+    </class>
+</hibernate-mapping>

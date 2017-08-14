@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 18, 2016 6:51:54 PM by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="Projeto" table="projeto">
+        <id name="idProjeto" type="int">
+            <column name="id_projeto" />
+            <generator class="assigned" />
+        </id>
+        <property name="descri??o" type="string">
+            <column name="descri??o" length="100" />
+        </property>
+        <property name="recursos" type="java.lang.Float">
+            <column name="recursos" precision="8" scale="8" />
+        </property>
+        <property name="dataInicial" type="date">
+            <column name="data_inicial" length="13" />
+        </property>
+        <property name="dataFinal" type="date">
+            <column name="data_final" length="13" />
+        </property>
+        <set name="utilizas" table="utiliza" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_projeto" />
+            </key>
+            <one-to-many class="Utiliza" />
+        </set>
+        <set name="pessoaProjetos" table="pessoa_projeto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_projeto" />
+            </key>
+            <one-to-many class="PessoaProjeto" />
+        </set>
+        <set name="solicitas" table="solicita" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_projeto" />
+            </key>
+            <one-to-many class="Solicita" />
+        </set>
+    </class>
+</hibernate-mapping>

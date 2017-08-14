@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">1234</property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/trabalhoBDI</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.default_schema">public</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping resource="Exemplar.hbm.xml" />
+        <mapping resource="FornecedorComponente.hbm.xml" />
+        <mapping resource="Funcao.hbm.xml" />
+        <mapping resource="Pedido.hbm.xml" />
+        <mapping resource="Projeto.hbm.xml" />
+        <mapping resource="Pessoa.hbm.xml" />
+        <mapping resource="Utiliza.hbm.xml" />
+        <mapping resource="Item.hbm.xml" />
+        <mapping resource="TipoPessoa.hbm.xml" />
+        <mapping resource="Recebe.hbm.xml" />
+        <mapping resource="Fornecedor.hbm.xml" />
+        <mapping resource="PessoaProjeto.hbm.xml" />
+        <mapping resource="PedidoComponente.hbm.xml" />
+        <mapping resource="Solicita.hbm.xml" />
+        <mapping resource="Solicitacao.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

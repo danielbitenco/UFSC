@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+	<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+	<property name="hibernate.connection.password">1234</property>
+	<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/trabbd</property>
+	<property name="hibernate.connection.username">postgres</property>
+	<property name="hibernate.default_schema">public</property>
+	<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+ 
+	<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+	<property name="hibernate.current_session_context_class">thread</property>
+	<property name="hibernate.connection.pool_size">10</property>
+<!-- 
+	<property name="show_sql">true</property>
+	<property name="format_sql">true</property>
+-->
+	<property name="hibernate.hbm2ddl.auto">update</property>
+	<mapping class="ufsc.bd1.org.model.Exemplar" />
+	<mapping class="ufsc.bd1.org.model.Fornecedor" />
+	<mapping class="ufsc.bd1.org.model.FornecedorComponente" />
+	<mapping class="ufsc.bd1.org.model.Funcao" />
+	<mapping class="ufsc.bd1.org.model.Item" />
+	<mapping class="ufsc.bd1.org.model.Pedido" />
+	<mapping class="ufsc.bd1.org.model.PedidoComponente" />
+	<mapping class="ufsc.bd1.org.model.Pessoa" />
+	<mapping class="ufsc.bd1.org.model.PessoaProjeto" />
+	<mapping class="ufsc.bd1.org.model.Projeto" />
+	<mapping class="ufsc.bd1.org.model.Recebe" />
+	<mapping class="ufsc.bd1.org.model.Solicita" />
+	<mapping class="ufsc.bd1.org.model.Solicitacao" />
+	<mapping class="ufsc.bd1.org.model.TipoPessoa" />
+	<mapping class="ufsc.bd1.org.model.Utiliza" />
+
+  
+ </session-factory>
+</hibernate-configuration>

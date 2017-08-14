@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 18, 2016 6:51:54 PM by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="Item" table="item">
+        <id name="idComponente" type="int">
+            <column name="id_componente" />
+            <generator class="assigned" />
+        </id>
+        <property name="valor" type="java.lang.Float">
+            <column name="valor" precision="8" scale="8" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="modelo" length="100" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="100" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="100" />
+        </property>
+        <set name="fornecedorComponentes" table="fornecedor_componente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_componente" />
+            </key>
+            <one-to-many class="FornecedorComponente" />
+        </set>
+        <set name="pedidoComponentes" table="pedido_componente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_componente" />
+            </key>
+            <one-to-many class="PedidoComponente" />
+        </set>
+        <set name="exemplars" table="exemplar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_componente" />
+            </key>
+            <one-to-many class="Exemplar" />
+        </set>
+    </class>
+</hibernate-mapping>

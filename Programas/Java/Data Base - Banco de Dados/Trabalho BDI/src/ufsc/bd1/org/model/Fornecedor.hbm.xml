@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 18, 2016 5:35:43 PM by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="Fornecedor" table="fornecedor">
+        <id name="idFornecedor" type="int">
+            <column name="id_fornecedor" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="100" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="endereco" length="200" />
+        </property>
+        <property name="website" type="string">
+            <column name="website" length="100" />
+        </property>
+        <set name="fornecedorComponentes" table="fornecedor_componente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fornecedor" />
+            </key>
+            <one-to-many class="FornecedorComponente" />
+        </set>
+        <set name="pedidos" table="pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fornecedor" />
+            </key>
+            <one-to-many class="Pedido" />
+        </set>
+           <key>
+                <column name="id_fornecedor" />
+            </key>
+            <one-to-many class="Pedido" />
+        </set>
+    </class>
+</hibernate-mapping>
