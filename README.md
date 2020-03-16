@@ -1,7 +1,7 @@
 # UFSC
 
 
-Copilation of all homeworks, projects and final projects that I have done during my Computer Engineering undergraduate program at Federal University of Santa Catarina. Most codes are written in Portuguese, others in English. Any doubt about any code just email me at  bitencd@outlook.com
+Compilation of all homework, projects and final projects that I have done during my Computer Engineering undergraduate program at the Federal University of Santa Catarina. Most codes are written in Portuguese, others in English. Any doubt about any code just email me at  bitencd@outlook.com
 
 __UNDER CONSTRUCTION...__
 
